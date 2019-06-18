@@ -1,0 +1,36 @@
+{
+  "name": "joskolenberg/eloquent-empty-date-nullifier",
+  "description": "Convert 0000-00-00 dates in the database to null when accessing your model's attributes.",
+  "license": "MIT",
+  "keywords": ["dates", "laravel", "date", "0000-00-00", "0000-00-00 00:00:00", "-0001-11-30"],
+  "authors": [
+    {
+      "name": "Jos Kolenberg",
+      "email": "jos@kolenberg.net"
+    }
+  ],
+  "minimum-stability": "stable",
+  "require": {
+    "illuminate/database": "^5.5"
+  },
+  "autoload": {
+    "psr-4": {
+      "JosKolenberg\\EloquentEmptyDateNullifier\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "JosKolenberg\\EloquentEmptyDateNullifier\\Tests\\": "tests/"
+    }
+  },
+  "require-dev": {
+    "orchestra/testbench": "^3.5"
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "JosKolenberg\\EloquentEmptyDateNullifier\\EmptyDateServiceProvider"
+      ]
+    }
+  }
+}
