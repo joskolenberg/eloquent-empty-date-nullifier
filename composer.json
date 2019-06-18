@@ -2,7 +2,7 @@
   "name": "joskolenberg/eloquent-empty-date-nullifier",
   "description": "Convert 0000-00-00 dates in the database to null when accessing your model's attributes.",
   "license": "MIT",
-  "keywords": ["dates", "laravel", "date", "0000-00-00", "0000-00-00 00:00:00", "-0001-11-30"],
+  "keywords": ["dates", "laravel", "date"],
   "authors": [
     {
       "name": "Jos Kolenberg",
