@@ -35,6 +35,22 @@ class TestCase extends \PHPUnit\Framework\TestCase
         $this->assertEquals('{"date_one":null,"date_two":null,"date_three":null,"date_four":"2019-01-01 12:34:56"}', $modelArray);
     }
 
+    /** @test */
+    public function it_converts_dates_from_the_blacklist_to_null_when_setting_an_attribute()
+    {
+        $model = $this->getModel();
+        $this->assertEquals('0000-00-00 00:00:00', $model->getAttributes()['date_one']);
+        $model->date_one = '0000-00-00';
+        $this->assertNull($model->attributesToArray()['date_one']);
+
+        $model = $this->getModel();
+        $this->assertEquals('0000-00-00 00:00:00', $model->getAttributes()['date_one']);
+        $model->fill([
+            'date_onde' => '0000-00-00',
+        ]);
+        $this->assertNull($model->attributesToArray()['date_one']);
+    }
+
     public function getModel()
     {
         $model = new TestModel();
