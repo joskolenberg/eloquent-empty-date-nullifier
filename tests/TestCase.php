@@ -39,16 +39,32 @@ class TestCase extends \PHPUnit\Framework\TestCase
     public function it_converts_dates_from_the_blacklist_to_null_when_setting_an_attribute()
     {
         $model = $this->getModel();
-        $this->assertEquals('0000-00-00 00:00:00', $model->getAttributes()['date_one']);
-        $model->date_one = '0000-00-00';
-        $this->assertNull($model->attributesToArray()['date_one']);
+        $this->assertEquals('0000-00-00 00:00:00', $model->getAttributes()['date_three']);
+        $model->date_three = '0000-00-00 00:00:00';
+        $this->assertNull($model->attributesToArray()['date_three']);
 
         $model = $this->getModel();
-        $this->assertEquals('0000-00-00 00:00:00', $model->getAttributes()['date_one']);
+        $this->assertEquals('0000-00-00 00:00:00', $model->getAttributes()['date_three']);
+        $model->date_three = '2019-02-03 12:34:56';
+        $this->assertEquals('2019-02-03 12:34:56', $model->date_three->format('Y-m-d H:i:s'));
+    }
+
+    /** @test */
+    public function it_converts_dates_from_the_blacklist_to_null_when_filling_an_attribute()
+    {
+        $model = $this->getModel();
+        $this->assertEquals('0000-00-00 00:00:00', $model->getAttributes()['date_three']);
         $model->fill([
-            'date_onde' => '0000-00-00',
+            'date_three' => '0000-00-00 00:00:00',
         ]);
-        $this->assertNull($model->attributesToArray()['date_one']);
+        $this->assertNull($model->attributesToArray()['date_three']);
+
+        $model = $this->getModel();
+        $this->assertEquals('0000-00-00 00:00:00', $model->getAttributes()['date_three']);
+        $model->fill([
+            'date_three' => '2019-02-03 12:34:56',
+        ]);
+        $this->assertEquals('2019-02-03 12:34:56', $model->date_three->format('Y-m-d H:i:s'));
     }
 
     public function getModel()
@@ -56,7 +72,7 @@ class TestCase extends \PHPUnit\Framework\TestCase
         $model = new TestModel();
 
         $model->setRawAttributes([
-            'date_one' => '0000-00-00 00:00:00',
+            'date_one' => '0000-00-00',
             'date_two' => '0000-00-00',
             'date_three' => '0000-00-00 00:00:00',
             'date_four' => '2019-01-01 12:34:56',

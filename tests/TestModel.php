@@ -15,7 +15,7 @@ class TestModel extends Model
 
     protected $casts = [
         'date_one' => 'date',
-        'date_three' => 'date',
+        'date_three' => 'datetime',
     ];
 
     protected $dates = [
