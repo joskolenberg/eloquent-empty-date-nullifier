@@ -65,7 +65,10 @@ trait NullifiesEmptyDates
      */
     protected function isValidDate($value)
     {
-        return ! in_array($value, config('empty-date.blacklist'));
+        return ! in_array($value, [
+            '0000-00-00 00:00:00',
+            '0000-00-00',
+        ]);
     }
 
     /**

@@ -9,6 +9,8 @@ class TestModel extends Model
 {
     use NullifiesEmptyDates;
 
+    protected $dateFormat = 'Y-m-d H:i:s';
+
     protected $guarded = [];
 
     protected $casts = [

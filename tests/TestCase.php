@@ -3,18 +3,9 @@
 namespace JosKolenberg\EloquentEmptyDateNullifier\Tests;
 
 use Illuminate\Support\Carbon;
-use JosKolenberg\EloquentEmptyDateNullifier\EmptyDateServiceProvider;
-use Orchestra\Testbench\TestCase as Orchestra;
 
-class TestCase extends Orchestra
+class TestCase extends \PHPUnit\Framework\TestCase
 {
-
-    protected function getPackageProviders($app)
-    {
-        return [
-            EmptyDateServiceProvider::class,
-        ];
-    }
 
     /** @test */
     public function it_converts_dates_from_the_blacklist_to_null_when_accessing_the_attribute()

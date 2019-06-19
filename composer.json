@@ -24,13 +24,6 @@
     }
   },
   "require-dev": {
-    "orchestra/testbench": "^3.5"
-  },
-  "extra": {
-    "laravel": {
-      "providers": [
-        "JosKolenberg\\EloquentEmptyDateNullifier\\EmptyDateServiceProvider"
-      ]
-    }
+    "phpunit/phpunit": "^6.0"
   }
 }
